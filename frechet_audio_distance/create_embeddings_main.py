@@ -46,6 +46,8 @@ flags.DEFINE_integer('model_step_size', 8000,
 
 flags.mark_flags_as_mutual_exclusive(['input_files', 'tfrecord_input'],
                                      required=True)
+flags.DEFINE_integer('batch_size', 8,
+                     'Number of samples in the batch for AudioSet model.')
 FLAGS = flags.FLAGS
 
 
@@ -61,6 +63,7 @@ def main(unused_argv):
       tfrecord_input=FLAGS.tfrecord_input,
       files_input_list=FLAGS.input_files,
       feature_key=FLAGS.feature_key,
+      batch_size=FLAGS.batch_size,
       embedding_model=ModelConfig(
           model_ckpt=FLAGS.model_ckpt,
           embedding_dim=FLAGS.model_embedding_dim,

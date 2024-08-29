@@ -18,3 +18,13 @@ dist/
 
 # Other
 *.DS_Store
+
+#Env
+fad/
+env/
+test_audio/
+test_audio2/
+stats2/
+*.ckpt
+data/
+
