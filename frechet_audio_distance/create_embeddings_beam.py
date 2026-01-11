@@ -345,7 +345,10 @@ def create_pipeline(embedding_model,
   Returns:
     The beam pipeline.
   """
-  pipeline = beam.Pipeline()
+  options = beam.options.pipeline_options.PipelineOptions(
+    flags=['--job-server-timeout', '7200']
+  )
+  pipeline = beam.Pipeline(options=options)
   if files_input_list:
     examples = (
         pipeline
